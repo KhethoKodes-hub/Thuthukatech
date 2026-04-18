@@ -97,13 +97,11 @@
 
   /* Page Hero with Video */
   .page-hero { position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 7rem 5%; margin-top: var(--nav-h); }
-  .hero-video-bg { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; filter: brightness(0.7) contrast(1.1); }
-  .hero-overlay { position: absolute; inset: 0; z-index: 1; background: radial-gradient(ellipse at 30% 50%, rgba(59,130,246,0.15) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(139,92,246,0.15) 0%, transparent 60%), linear-gradient(to bottom, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.9) 100%); }
-  .page-hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto; }
+  .hero-video-bg { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; filter: brightness(0.7) contrast(1.1); }  .page-hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto; }
   .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: rgba(255,255,255,0.5); }
   .breadcrumb a { color: var(--purple); text-decoration: none; transition: color 0.3s; }
   .breadcrumb a:hover { color: var(--blue); }
-  .breadcrumb i { font-size: 10px; }
+  .breadcrumb i { font-size: 10px; } 
   .section-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); margin-bottom: 1rem; justify-content: center; }
   .section-tag::before { content: ''; width: 24px; height: 1.5px; background: var(--purple); }
   .section-h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; letter-spacing: -0.03em; }
@@ -263,6 +261,8 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="#" class="active">Services</a></li>
+        <li><a href="ourstory.html">Our Story</a></li>
+
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="contact.html" class="nav-cta">Get Started</a>
@@ -276,9 +276,8 @@
 <!-- Hero with Video Background -->
 <section class="page-hero">
   <video class="hero-video-bg" autoplay loop muted playsinline>
-    <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-network-grid-32877-large.mp4" type="video/mp4">
+    <source src="assets/digital2.mp4" type="video/mp4">
   </video>
-  <div class="hero-overlay"></div>
   <div class="page-hero-content">
     <div class="breadcrumb"><a href="#">Home</a><i class="fas fa-chevron-right"></i><span>Services</span></div>
     <div class="section-tag" style="animation:fadeInDown 0.7s ease both">What We Offer</div>
