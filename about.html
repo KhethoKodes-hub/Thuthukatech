@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Thuthuka Tech — Elevate. Innovate. Rise.</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --white: #ffffff;
+    --cream: #f8f5f0;
+    --blue-light: #dbeafe;
+    --blue: #3b82f6;
+    --blue-mid: #2563eb;
+    --blue-dark: #1e3a8a;
+    --navy: #0f172a;
+    --navy-2: #1e293b;
+    --purple-light: #ede9fe;
+    --purple: #8b5cf6;
+    --purple-mid: #7c3aed;
+    --purple-dark: #4c1d95;
+    --grad-hero: linear-gradient(135deg, #0f172a 0%, #1e1b4b 40%, #0c1445 70%, #0f172a 100%);
+    --grad-blue-purple: linear-gradient(135deg, #1e3a8a, #4c1d95);
+    --grad-accent: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    --grad-card: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    --glass-bg: rgba(255,255,255,0.06);
+    --glass-border: rgba(255,255,255,0.12);
+    --glass-hover: rgba(255,255,255,0.1);
+    --shadow-glow-blue: 0 0 40px rgba(59,130,246,0.3);
+    --shadow-glow-purple: 0 0 40px rgba(139,92,246,0.3);
+    --shadow-card: 0 8px 32px rgba(0,0,0,0.3);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --nav-h: 72px;
+    --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* Custom cursor */
+  .cursor { position: fixed; width: 12px; height: 12px; background: var(--blue); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.1s, width 0.3s, height 0.3s; mix-blend-mode: screen; }
+  .cursor-ring { position: fixed; width: 40px; height: 40px; border: 1.5px solid rgba(139,92,246,0.6); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.15s ease-out, width 0.4s, height 0.4s; }
+  .cursor.active { width: 24px; height: 24px; background: var(--purple); }
+  .cursor-ring.active { width: 60px; height: 60px; border-color: rgba(59,130,246,0.5); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--grad-accent); border-radius: 2px; }
+
+  /* Navigation */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    height: var(--nav-h);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    background: rgba(15,23,42,0.6);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: var(--transition);
+  }
+  nav.scrolled { background: rgba(15,23,42,0.92); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-icon { width: 38px; height: 38px; background: var(--grad-accent); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; color: white; box-shadow: 0 0 20px rgba(139,92,246,0.4); }
+  .nav-logo-text { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; background: var(--grad-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-family: var(--font-body); font-size: 0.875rem; font-weight: 500; color: rgba(255,255,255,0.7); text-decoration: none; letter-spacing: 0.02em; position: relative; padding-bottom: 4px; transition: color 0.3s; }
+  .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--grad-accent); transition: width 0.3s; }
+  .nav-links a:hover { color: white; }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active { color: white; }
+  .nav-links a.active::after { width: 100%; }
+  .nav-cta { padding: 10px 22px; border-radius: 8px; background: var(--grad-accent); color: white !important; font-weight: 600 !important; font-size: 0.875rem !important; border: none; cursor: pointer; text-decoration: none; transition: var(--transition) !important; box-shadow: 0 0 20px rgba(59,130,246,0.3); }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(139,92,246,0.5) !important; }
+  .nav-cta::after { display: none !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { width: 24px; height: 2px; background: white; border-radius: 2px; transition: var(--transition); transform-origin: center; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: rgba(15,23,42,0.97); backdrop-filter: blur(20px); padding: 2rem 5%; z-index: 999; border-bottom: 1px solid var(--glass-border); transform: translateY(-20px); opacity: 0; transition: var(--transition); }
+  .mobile-menu.open { transform: translateY(0); opacity: 1; }
+  .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
+  .mobile-menu a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 1.1rem; font-weight: 500; font-family: var(--font-display); transition: color 0.3s; }
+  .mobile-menu a:hover { color: white; }
+  .mobile-menu .mobile-cta { margin-top: 1rem; padding: 14px; border-radius: 10px; background: var(--grad-accent); text-align: center; color: white !important; font-weight: 600 !important; display: block; }
+
+  /* Page Hero with Video */
+  .page-hero { position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 7rem 5%; margin-top: var(--nav-h); }
+  .hero-video-bg { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; filter: brightness(0.7) contrast(1.1); }
+  .hero-overlay { position: absolute; inset: 0; z-index: 1; background: radial-gradient(ellipse at 30% 50%, rgba(59,130,246,0.15) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(139,92,246,0.15) 0%, transparent 60%), linear-gradient(to bottom, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.9) 100%); }
+  .page-hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto; }
+  .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+  .breadcrumb a { color: var(--purple); text-decoration: none; transition: color 0.3s; }
+  .breadcrumb a:hover { color: var(--blue); }
+  .breadcrumb i { font-size: 10px; }
+  .section-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); margin-bottom: 1rem; justify-content: center; }
+  .section-tag::before { content: ''; width: 24px; height: 1.5px; background: var(--purple); }
+  .section-h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; letter-spacing: -0.03em; }
+  .section-h2 span { background: var(--grad-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .section-sub { font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 520px; margin-top: 1rem; }
+
+  /* Stats Bar */
+  .stats-bar { background: rgba(30,26,75,0.8); backdrop-filter: blur(20px); border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat-item { padding: 2rem 2.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.07); transition: var(--transition); }
+  .stat-item:last-child { border-right: none; }
+  .stat-item:hover { transform: translateY(-4px); background: rgba(139,92,246,0.05); }
+  .stat-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; background: var(--grad-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* Mission Section with Futuristic Visuals */
+  #mission { padding: 7rem 5%; background: var(--navy); position: relative; overflow: hidden; }
+  .mission-orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+  .mission-orb-1 { width: 500px; height: 500px; background: rgba(59,130,246,0.07); top: -150px; right: -150px; }
+  .mission-orb-2 { width: 350px; height: 350px; background: rgba(139,92,246,0.07); bottom: -100px; left: -100px; }
+  .mission-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .mission-visual { position: relative; }
+  .mission-img-stack { position: relative; }
+  .mission-img-main { border-radius: 24px; overflow: hidden; aspect-ratio: 4/3; background: var(--grad-blue-purple); box-shadow: 0 30px 80px rgba(0,0,0,0.4); }
+  .mission-img-main img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; mix-blend-mode: luminosity; transition: transform 0.5s; }
+  .mission-visual:hover .mission-img-main img { transform: scale(1.02); }
+  .mission-img-secondary { position: absolute; bottom: -30px; left: -30px; width: 50%; border-radius: 16px; overflow: hidden; border: 3px solid var(--navy); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+  .mission-img-secondary img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mission-badge { position: absolute; top: -20px; right: -20px; background: rgba(30,41,59,0.95); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 16px; padding: 1.25rem; text-align: center; box-shadow: var(--shadow-card); }
+  .mb-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; background: var(--grad-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+  .mb-label { font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+  .mission-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+  .mv-item { padding: 1.25rem; border-radius: 14px; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition); }
+  .mv-item:hover { background: rgba(139,92,246,0.08); border-color: rgba(139,92,246,0.25); transform: translateY(-4px); }
+  .mv-icon { font-size: 1.4rem; color: var(--blue); margin-bottom: 0.5rem; }
+  .mv-title { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+  .mv-desc { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  /* Timeline Journey */
+  #story { padding: 7rem 5%; background: linear-gradient(180deg, #0d1340 0%, var(--navy) 100%); }
+  .story-inner { max-width: 1200px; margin: 0 auto; }
+  .story-head { text-align: center; margin-bottom: 5rem; }
+  .story-timeline { position: relative; max-width: 800px; margin: 0 auto; }
+  .story-timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--blue), var(--purple), transparent); transform: translateX(-50%); }
+  .timeline-item { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 1rem; align-items: start; margin-bottom: 3rem; position: relative; }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .tl-left { text-align: right; padding-right: 1rem; }
+  .tl-right { text-align: left; padding-left: 1rem; }
+  .tl-dot-wrap { display: flex; justify-content: center; }
+  .tl-dot { width: 44px; height: 44px; border-radius: 50%; background: var(--navy-2); border: 2px solid var(--purple); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.65rem; color: var(--purple); position: relative; z-index: 1; transition: var(--transition); }
+  .timeline-item:hover .tl-dot { background: var(--grad-accent); border-color: transparent; color: white; transform: scale(1.1); }
+  .tl-year { font-family: var(--font-mono); font-size: 0.7rem; color: var(--purple); letter-spacing: 0.1em; margin-bottom: 4px; }
+  .tl-title { font-family: var(--font-display); font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
+  .tl-desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+  .tl-content { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 14px; padding: 1.25rem; transition: var(--transition); }
+  .timeline-item:hover .tl-content { border-color: rgba(139,92,246,0.3); background: rgba(139,92,246,0.06); }
+
+  /* Team Grid */
+  #team { padding: 7rem 5%; background: var(--navy); }
+  .team-head { max-width: 1200px; margin: 0 auto 4rem; text-align: center; }
+  .team-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .team-card { border-radius: 20px; overflow: hidden; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition); text-align: center; position: relative; }
+  .team-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--grad-accent); transform: scaleX(0); transition: transform 0.4s; }
+  .team-card:hover::after { transform: scaleX(1); }
+  .team-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); border-color: rgba(139,92,246,0.25); }
+  .team-avatar { height: 180px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1e3a8a, #4c1d95); font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: rgba(255,255,255,0.9); letter-spacing: -0.02em; }
+  .team-info { padding: 1.5rem; }
+  .team-name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+  .team-role { font-size: 0.8rem; color: var(--purple); margin-bottom: 0.75rem; font-weight: 500; }
+  .team-bio { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+  .team-socials { display: flex; gap: 8px; justify-content: center; margin-top: 1rem; }
+  .ts-link { width: 32px; height: 32px; border-radius: 8px; background: var(--glass-bg); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; text-decoration: none; transition: var(--transition); }
+  .ts-link:hover { background: var(--grad-accent); border-color: transparent; color: white; transform: translateY(-2px); }
+
+  /* CTA Strip */
+  .cta-strip { padding: 5rem 5%; background: var(--navy); position: relative; overflow: hidden; }
+  .cta-strip-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.1), rgba(139,92,246,0.06) 40%, transparent 70%); }
+  .cta-strip-inner { max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .cta-strip-inner h2 { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; }
+  .cta-strip-inner p { color: rgba(255,255,255,0.55); margin-bottom: 2rem; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border-radius: 12px; background: var(--grad-accent); color: white; font-weight: 600; font-size: 0.95rem; text-decoration: none; border: none; cursor: pointer; box-shadow: 0 0 30px rgba(59,130,246,0.4); transition: var(--transition); }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 50px rgba(139,92,246,0.5); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 12px; background: var(--glass-bg); border: 1px solid var(--glass-border); color: rgba(255,255,255,0.85); font-weight: 500; font-size: 0.95rem; text-decoration: none; cursor: pointer; backdrop-filter: blur(10px); transition: var(--transition); }
+  .btn-ghost:hover { background: var(--glass-hover); border-color: rgba(255,255,255,0.25); transform: translateY(-3px); }
+
+  /* Footer */
+  footer { background: #070b1a; padding: 5rem 5% 2rem; border-top: 1px solid var(--glass-border); }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .footer-brand p { margin-top: 1rem; font-size: 0.875rem; line-height: 1.7; color: rgba(255,255,255,0.45); max-width: 280px; }
+  .footer-socials { display: flex; gap: 12px; margin-top: 1.5rem; }
+  .social-link { width: 38px; height: 38px; border-radius: 10px; background: var(--glass-bg); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 14px; text-decoration: none; transition: var(--transition); }
+  .social-link:hover { background: var(--grad-accent); border-color: transparent; color: white; transform: translateY(-4px); }
+  .footer-col h5 { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; margin-bottom: 1.25rem; color: rgba(255,255,255,0.9); }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .footer-col a { font-size: 0.85rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.3s; }
+  .footer-col a:hover { color: rgba(255,255,255,0.85); }
+  .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+  .footer-bottom-links { display: flex; gap: 2rem; }
+  .footer-bottom-links a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.3s; }
+  .footer-bottom-links a:hover { color: rgba(255,255,255,0.7); }
+  .footer-tag { color: var(--purple); }
+  .scroll-top { position: fixed; bottom: 2rem; right: 2rem; z-index: 500; width: 46px; height: 46px; border-radius: 14px; background: var(--grad-accent); border: none; cursor: pointer; color: white; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: var(--transition); opacity: 0; pointer-events: none; box-shadow: var(--shadow-glow-blue); }
+  .scroll-top.visible { opacity: 1; pointer-events: all; }
+  .scroll-top:hover { transform: translateY(-4px); box-shadow: var(--shadow-glow-purple); }
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-left.in { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-right.in { opacity: 1; transform: translateX(0); }
+
+  @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  @media (max-width: 1024px) { .mission-inner { grid-template-columns: 1fr; gap: 3rem; } .team-grid { grid-template-columns: repeat(2, 1fr); } .stats-inner { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) { .nav-links, .nav-cta { display: none; } .hamburger { display: flex; } .mobile-menu { display: block; } .story-timeline::before { left: 22px; } .timeline-item { grid-template-columns: 44px 1fr; } .tl-left { display: none; } .tl-right { padding-left: 0; } .team-grid { grid-template-columns: 1fr; } .footer-inner { grid-template-columns: 1fr; } .stats-inner { grid-template-columns: 1fr; } .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); } }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
+
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon"><i class="fas fa-rocket"></i></div>
+    <span class="nav-logo-text">Thuthuka Tech</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get Started</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul><li><a href="#" class="mobile-link">Home</a></li><li><a href="#" class="mobile-link">About</a></li><li><a href="#" class="mobile-link">Services</a></li><li><a href="#" class="mobile-link">Contact</a></li></ul>
+  <a href="#" class="mobile-link mobile-cta">Free Consultation</a>
+</div>
+
+<!-- Hero with Video Background -->
+<section class="page-hero">
+  <video class="hero-video-bg" autoplay loop muted playsinline>
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-network-grid-32877-large.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="#">Home</a><i class="fas fa-chevron-right"></i><span>About</span></div>
+    <div class="section-tag" style="animation:fadeInDown 0.7s ease both">Who We Are</div>
+    <h1 class="section-h2" style="font-size:clamp(2.8rem,6vw,5rem);animation:fadeInUp 0.8s 0.1s ease both">Built to <span>Elevate</span><br>Every Business</h1>
+    <p class="section-sub" style="max-width:560px;animation:fadeInUp 0.8s 0.2s ease both;margin:1rem auto 0">Thuthuka — meaning <em>rise</em> in Zulu — is more than a name. It's our promise to every client: we lift your vision into digital reality with precision, passion and partnership.</p>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num" data-count="150">0</div><div class="stat-label">Projects Delivered</div></div>
+    <div class="stat-item"><div class="stat-num" data-count="8">0+</div><div class="stat-label">Years of Excellence</div></div>
+    <div class="stat-item"><div class="stat-num" data-count="98">0%</div><div class="stat-label">Client Satisfaction</div></div>
+    <div class="stat-item"><div class="stat-num" data-count="24">0</div><div class="stat-label">Expert Engineers</div></div>
+  </div>
+</div>
+
+<!-- Mission -->
+<section id="mission">
+  <div class="mission-orb mission-orb-1"></div><div class="mission-orb mission-orb-2"></div>
+  <div class="mission-inner">
+    <div class="mission-visual reveal-left">
+      <div class="mission-img-stack">
+        <div class="mission-img-main"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80" alt="Team collaborating"></div>
+        <div class="mission-img-secondary"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80" alt="Code"></div>
+      </div>
+      <div class="mission-badge"><div class="mb-num">8+</div><div class="mb-label">Years of<br>Excellence</div></div>
+    </div>
+    <div class="mission-text reveal-right">
+      <div class="section-tag">Our Mission</div>
+      <h2 class="section-h2">Forward-Thinking IT <span>Solutions</span></h2>
+      <p class="section-sub">Thuthuka Tech is a forward-thinking IT solutions company dedicated to helping businesses innovate and grow. From software development to cloud infrastructure and cybersecurity, we bring creative and technical expertise to every project.</p>
+      <p class="section-sub" style="margin-top:1rem">Our mission is to deliver scalable, tailored solutions that drive real results — whether you're launching a digital product, transforming your infrastructure, or enhancing your brand presence in the digital age.</p>
+      <div class="mission-values">
+        <div class="mv-item"><div class="mv-icon"><i class="fas fa-rocket"></i></div><div class="mv-title">Innovation First</div><div class="mv-desc">We embrace cutting-edge technologies to future-proof every solution we build.</div></div>
+        <div class="mv-item"><div class="mv-icon"><i class="fas fa-handshake"></i></div><div class="mv-title">True Partnership</div><div class="mv-desc">We invest in your success as if it were our own — beyond delivery, into growth.</div></div>
+        <div class="mv-item"><div class="mv-icon"><i class="fas fa-gem"></i></div><div class="mv-title">Uncompromising Quality</div><div class="mv-desc">Every pixel and every line of code meets the highest professional standards.</div></div>
+        <div class="mv-item"><div class="mv-icon"><i class="fas fa-scale-balanced"></i></div><div class="mv-title">Scalable by Design</div><div class="mv-desc">Built to grow — from MVP to enterprise without a costly rebuild.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline Journey -->
+<section id="story">
+  <div class="story-inner">
+    <div class="story-head reveal"><div class="section-tag" style="justify-content:center">Our Journey</div><h2 class="section-h2">The Thuthuka <span>Story</span></h2><p class="section-sub" style="max-width:500px;margin:1rem auto 0">From a bold idea to a trusted technology partner — our journey of rising and elevating.</p></div>
+    <div class="story-timeline">
+      <div class="timeline-item reveal"><div class="tl-left"><div class="tl-content"><div class="tl-year">2017</div><div class="tl-title">Founded in Johannesburg</div><div class="tl-desc">Thuthuka Tech was born from a vision to bring enterprise-grade technology to South African businesses.</div></div></div><div class="tl-dot-wrap"><div class="tl-dot"><i class="fas fa-flag"></i></div></div><div class="tl-empty"></div></div>
+      <div class="timeline-item reveal"><div class="tl-empty"></div><div class="tl-dot-wrap"><div class="tl-dot"><i class="fas fa-users"></i></div></div><div class="tl-right"><div class="tl-content"><div class="tl-year">2019</div><div class="tl-title">Team Expansion & Cloud Focus</div><div class="tl-desc">Grew to 10 specialists, launched Cloud Computing practice helping SMEs migrate to AWS/Azure.</div></div></div></div>
+      <div class="timeline-item reveal"><div class="tl-left"><div class="tl-content"><div class="tl-year">2021</div><div class="tl-title">AI & Data Practice Launch</div><div class="tl-desc">Launched AI and Data Solutions division, delivering ML and analytics platforms to enterprises.</div></div></div><div class="tl-dot-wrap"><div class="tl-dot"><i class="fas fa-brain"></i></div></div><div class="tl-empty"></div></div>
+      <div class="timeline-item reveal"><div class="tl-empty"></div><div class="tl-dot-wrap"><div class="tl-dot"><i class="fas fa-trophy"></i></div></div><div class="tl-right"><div class="tl-content"><div class="tl-year">2023</div><div class="tl-title">150+ Projects Milestone</div><div class="tl-desc">Reached 150 delivered projects and 98% client satisfaction — recognised as top IT firm in Gauteng.</div></div></div></div>
+      <div class="timeline-item reveal"><div class="tl-left"><div class="tl-content"><div class="tl-year">2025</div><div class="tl-title">Full-Stack Digital Powerhouse</div><div class="tl-desc">Today we are a comprehensive digital solutions partner — from dev to cybersecurity and beyond.</div></div></div><div class="tl-dot-wrap"><div class="tl-dot"><i class="fas fa-star"></i></div></div><div class="tl-empty"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section id="team">
+  <div class="team-head reveal"><div class="section-tag" style="justify-content:center">The People</div><h2 class="section-h2">Meet Our <span>Expert Team</span></h2><p class="section-sub" style="max-width:500px;margin:1rem auto 0">Passionate technologists dedicated to elevating your business.</p></div>
+  <div class="team-grid">
+    <div class="team-card reveal"><div class="team-avatar">KM</div><div class="team-info"><div class="team-name">Khetho Mokoena</div><div class="team-role">Founder & CEO</div><div class="team-bio">Visionary leader with 10+ years in IT strategy and digital transformation.</div><div class="team-socials"><a href="#" class="ts-link"><i class="fab fa-linkedin-in"></i></a><a href="#" class="ts-link"><i class="fab fa-twitter"></i></a></div></div></div>
+    <div class="team-card reveal" style="transition-delay:0.1s"><div class="team-avatar">TN</div><div class="team-info"><div class="team-name">Thabo Nkosi</div><div class="team-role">Lead Full-Stack Engineer</div><div class="team-bio">React, Node.js expert building scalable digital products.</div><div class="team-socials"><a href="#" class="ts-link"><i class="fab fa-linkedin-in"></i></a><a href="#" class="ts-link"><i class="fab fa-github"></i></a></div></div></div>
+    <div class="team-card reveal" style="transition-delay:0.2s"><div class="team-avatar">NZ</div><div class="team-info"><div class="team-name">Naledi Zulu</div><div class="team-role">Cybersecurity Specialist</div><div class="team-bio">Certified ethical hacker protecting enterprise systems.</div><div class="team-socials"><a href="#" class="ts-link"><i class="fab fa-linkedin-in"></i></a><a href="#" class="ts-link"><i class="fab fa-twitter"></i></a></div></div></div>
+    <div class="team-card reveal" style="transition-delay:0.3s"><div class="team-avatar">SM</div><div class="team-info"><div class="team-name">Sibusiso Mthembu</div><div class="team-role">AI & Data Lead</div><div class="team-bio">ML engineer building intelligent systems for real business value.</div><div class="team-socials"><a href="#" class="ts-link"><i class="fab fa-linkedin-in"></i></a><a href="#" class="ts-link"><i class="fab fa-github"></i></a></div></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <div class="cta-strip-bg"></div>
+  <div class="cta-strip-inner reveal"><div class="section-tag" style="justify-content:center">Work With Us</div><h2>Ready to <span style="background:var(--grad-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Rise Together?</span></h2><p>Let's discuss how Thuthuka Tech can transform your business with tailored digital solutions.</p><div class="cta-btns"><a href="#" class="btn-primary"><i class="fas fa-calendar-check"></i> Book Free Consultation</a><a href="#" class="btn-ghost"><i class="fas fa-grid-2"></i> View All Services</a></div></div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner"><div class="footer-brand"><a href="#" class="nav-logo"><div class="nav-logo-icon"><i class="fas fa-rocket"></i></div><span class="nav-logo-text">Thuthuka Tech</span></a><p>We combine deep technical expertise with creative innovation to build solutions that truly elevate your business.</p><div class="footer-socials"><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a><a href="#" class="social-link"><i class="fab fa-twitter"></i></a><a href="#" class="social-link"><i class="fab fa-instagram"></i></a><a href="#" class="social-link"><i class="fab fa-github"></i></a></div></div><div class="footer-col"><h5>Services</h5><ul><li><a href="#">Full-Stack Dev</a></li><li><a href="#">Cloud Computing</a></li><li><a href="#">Cybersecurity</a></li><li><a href="#">AI & Data</a></li></ul></div><div class="footer-col"><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li></ul></div><div class="footer-col"><h5>Support</h5><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Use</a></li></ul></div></div>
+  <div class="footer-bottom"><p>© 2025 Thuthuka Tech. All rights reserved. <span class="footer-tag">Rise Digital.</span></p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div></div>
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor'), ring = document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  (function anim(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})();
+  document.querySelectorAll('a,button,.team-card,.mv-item').forEach(el=>{el.addEventListener('mouseenter',()=>{cursor.classList.add('active');ring.classList.add('active');});el.addEventListener('mouseleave',()=>{cursor.classList.remove('active');ring.classList.remove('active');});});
+  const nav=document.getElementById('navbar'),stBtn=document.getElementById('scrollTop');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>50);stBtn.classList.toggle('visible',scrollY>400);});
+  const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileMenu');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');});
+  document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');}));
+  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:0.12});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(r=>obs.observe(r));
+  function countUp(el,target,suf){let s=0;const step=target/(2000/16);const t=setInterval(()=>{s=Math.min(s+step,target);el.textContent=Math.floor(s)+(suf||'');if(s>=target)clearInterval(t);},16);}
+  const cobs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target;let n=parseInt(el.dataset.count);let suf=el.textContent.replace(/[0-9]/g,'');countUp(el,n,suf);cobs.unobserve(el);}});},{threshold:0.5});
+  document.querySelectorAll('[data-count]').forEach(el=>cobs.observe(el));
+</script>
+</body>
+</html>
